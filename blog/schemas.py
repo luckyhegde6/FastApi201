@@ -1,12 +1,19 @@
+from typing import List 
 import datetime
 from sqlite3 import Date
 from typing import Optional, Union
 from pydantic import BaseModel
 
-class Blog(BaseModel):
+class BlogBase(BaseModel):
     title: str
     body:str
     published: Optional [bool]
+class Blog(BlogBase):
+    title: str
+    body:str
+    published: Optional [bool]
+    class Config:
+        orm_mode = True
 
 class User(BaseModel):
     email: str
@@ -17,6 +24,7 @@ class User(BaseModel):
 class ShowUser(User):
     email: str
     username: str
+    blogs: List[Blog]
 
     class Config:
         orm_mode = True
