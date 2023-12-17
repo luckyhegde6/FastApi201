@@ -8,6 +8,7 @@ class BlogBase(BaseModel):
     title: str
     body:str
     published: Optional [bool]
+
 class Blog(BlogBase):
     title: str
     body:str
@@ -20,6 +21,10 @@ class User(BaseModel):
     password:str
     username: str
     created_at:Optional [Date]
+
+class Login(BaseModel):
+     username: str
+     password: str
 
 class ShowUser(User):
     email: str
@@ -36,3 +41,11 @@ class ShowBlog(Blog) :
         
         class Config:
              orm_mode = True
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    email: Optional[str]= None

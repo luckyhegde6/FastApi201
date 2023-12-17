@@ -26,5 +26,5 @@ class User(Base):
     username = Column(String)
     created_at = Column(Date)
     
-    blogs = relationship('Blog', back_populates="users")
+    blogs = relationship('Blog', back_populates="creater")
 

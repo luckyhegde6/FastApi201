@@ -8,7 +8,7 @@ from ..database import engine, SessionLocal
 
 router= APIRouter(
      prefix="/users",
-    tags=["users"],
+    tags=["Users"],
     responses={404: {"description": "Not found"}},
 )
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
